@@ -4,5 +4,5 @@
 # Loop through all accounts:
 while read domain user; do echo -e "\n$user" ; /usr/local/cpanel/3rdparty/bin/clamscan -i -r /home/"$user" 2>&1; done </etc/trueuserdomains >>/root/infections-$(date +"%d_%m_%Y").txt
 # Send report once done:
-echo "Hello! Please find your ClamAV scan results attached." | mail -s "ClamAV scan for $(hostname) on $(date +"%d_%m_%Y")" user@example.com -A /root/infections-$(date +"%d_%m_%Y").txt
+/usr/bin/mail -s "ClamAV scan for $(hostname) on $(date +"%d_%m_%Y")" user@example.com < /root/infections-$(date +"%d_%m_%Y").txt
 # Done
