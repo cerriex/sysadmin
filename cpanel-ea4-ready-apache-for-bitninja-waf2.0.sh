@@ -16,6 +16,7 @@ fi
 MODFILE=$(find /etc/apache2/conf.modules.d/ -name "*mod_remoteip.conf")
 cp $MODFILE $MODFILE{,.pre-waf2.0}
 cat >> $MODFILE <<EOL
+
 <IfModule remoteip_module>
  RemoteIPHeader X-Forwarded-For
  RemoteIPTrustedProxy 127.0.0.1 $(hostname -i)
@@ -25,6 +26,7 @@ EOL
 # Set logging for forwarded IP
 cp /etc/apache2/conf.d/includes/pre_main_global.conf{,.pre-waf2.0}
 cat >> /etc/apache2/conf.d/includes/pre_main_global.conf <<EOL
+
 <IfModule remoteip_module>
   RemoteIPHeader X-Forwarded-For
 </IfModule>
