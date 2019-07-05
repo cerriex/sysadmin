@@ -14,6 +14,7 @@ fi
 
 # Edit remoteip.conf file
 MODFILE=$(find /etc/apache2/conf.modules.d/ -name "*mod_remoteip.conf")
+cp $MODFILE $MODFILE{,.pre-waf2.0}
 cat >> $MODFILE <<EOL
 <IfModule remoteip_module>
  RemoteIPHeader X-Forwarded-For
