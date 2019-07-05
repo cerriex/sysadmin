@@ -8,9 +8,8 @@ if ! rpm -qa | grep -q ea-apache24-2.4; then
 fi
 
 # Check and install mod_remoteip if not already installed
-if ! rpm -qa | grep -q ea-apache24-2.4; then
-  echo -e "Not EA4" 
-  exit 1
+if ! rpm -qa | grep -q remoteip; then
+  yum -y install ea-apache24-mod_remoteip.x86_64
 fi
 
 # Edit remoteip.conf file
