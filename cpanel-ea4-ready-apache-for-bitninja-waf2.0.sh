@@ -37,7 +37,7 @@ cat >> /etc/apache2/conf.d/includes/pre_main_global.conf <<EOL
 EOL
 
 # Restart Apache
-service httpd restart
+/scripts/restartsrv_httpd
 
 # Done
 echo -e "Apache has been prepared for WAF 2.0. You may now enable it inside the Bitninja control panel."
