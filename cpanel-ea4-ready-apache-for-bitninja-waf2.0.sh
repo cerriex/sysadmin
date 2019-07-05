@@ -35,3 +35,6 @@ service httpd restart
 
 # Done
 echo -e "Apache has been prepared for WAF 2.0. You may now enable it inside the Bitninja control panel."
+
+# Is Bitninja WAF 2.0 running? 
+# netstat -lntp | grep -E '60300|60301' ; iptables -S -t nat | grep -E 'BN_WAF_REDIR'
